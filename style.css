@@ -19,11 +19,13 @@ body {
   overflow-x: hidden;
   color: var(--deep);
   font-family: 'Quicksand', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  background:
-    radial-gradient(circle at 12% 8%,  #ffe6ef 0%, transparent 50%),
-    radial-gradient(circle at 88% 90%, #ffeada 0%, transparent 50%),
-    radial-gradient(circle at 80% 12%, #ffe8f2 0%, transparent 45%),
-    linear-gradient(160deg, #fff8f4 0%, #ffe8ef 55%, #ffdfe9 100%);
+  background-color: #ffdfe9;
+  background-image:
+    linear-gradient(rgba(255, 240, 245, .25), rgba(255, 223, 233, .35)),
+    url("Love.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 /* ============ background teddies ============ */
@@ -58,7 +60,7 @@ body {
   width: min(440px, 100%);
   padding: 34px 26px 30px;
   text-align: center;
-  border: 2px solid #ffd7e3;
+  border: 2px solid #9a7a83;
   border-radius: 30px;
   background-color: #fff0f5;
   /* pink veil on top of your picture so the text stays readable.

@@ -1,0 +1,318 @@
+/* ============ theme ============ */
+:root {
+  --pink:  #ffb6c9;
+  --rose:  #e8547c;
+  --deep:  #7a2b45;
+  --muted: #a4677d;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+  color: var(--deep);
+  font-family: 'Quicksand', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(circle at 12% 8%,  #ffe6ef 0%, transparent 50%),
+    radial-gradient(circle at 88% 90%, #ffeada 0%, transparent 50%),
+    radial-gradient(circle at 80% 12%, #ffe8f2 0%, transparent 45%),
+    linear-gradient(160deg, #fff8f4 0%, #ffe8ef 55%, #ffdfe9 100%);
+}
+
+/* ============ background teddies ============ */
+.teds {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ted {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  font-size: var(--size);
+  opacity: var(--op, .35);
+  filter: blur(var(--blur, 0));
+  user-select: none;
+  animation: floaty var(--dur, 10s) ease-in-out var(--delay, 0s) infinite;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0)      rotate(-7deg); }
+  50%      { transform: translateY(-22px)  rotate(7deg);  }
+}
+
+/* ============ card (picture background) ============ */
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(440px, 100%);
+  padding: 34px 26px 30px;
+  text-align: center;
+  border: 2px solid #ffd7e3;
+  border-radius: 30px;
+  background-color: #fff0f5;
+  /* pink veil on top of your picture so the text stays readable.
+     Lower .55 / .65 to show more picture, raise them for clearer text. */
+  background-image:
+    linear-gradient(rgba(255, 248, 251, .55), rgba(255, 232, 240, .65)),
+    url("bg.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow:
+    0 22px 45px -18px rgba(232, 84, 124, .35),
+    0 1px 0 #fff inset;
+}
+
+/* second screen: photo2.jpg fills the whole card background.
+   Lower .55 / .65 to show more of the picture. */
+.card.revealed {
+  background-image:
+    linear-gradient(rgba(255, 248, 251, .55), rgba(255, 232, 240, .65)),
+    url("photo2.jpg");
+}
+
+/* ============ screens ============ */
+.screen.is-hidden { display: none; }
+
+.screen.is-in {
+  animation: fadeUp .55s cubic-bezier(.22, .9, .3, 1) both;
+}
+
+.screen.is-out {
+  animation: gateOut .35s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px) scale(.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes gateOut {
+  to { opacity: 0; transform: translateY(-10px) scale(.97); }
+}
+
+/* ============ typography ============ */
+.teddy-badge {
+  font-size: 2.6rem;
+  line-height: 1;
+  filter: drop-shadow(0 6px 10px rgba(232, 84, 124, .22));
+  animation: bob 3.4s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+h1.script {
+  margin: 8px 0 4px;
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2rem, 8vw, 2.55rem);
+  font-weight: 700;
+  color: var(--rose);
+  letter-spacing: .5px;
+}
+
+.sub {
+  margin: 0 0 20px;
+  font-size: .92rem;
+  color: var(--muted);
+}
+
+/* ============ photos ============ */
+.photo {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+  margin: 14px auto 10px;
+  object-fit: cover;
+  border: 3px solid #fff;
+  border-radius: 22px;
+  box-shadow: 0 14px 28px -14px rgba(232, 84, 124, .55);
+}
+
+/* ============ hint ============ */
+.hint {
+  margin: 0 0 18px;
+  padding: 13px 16px;
+  border: 1px dashed #ffc3d5;
+  border-radius: 16px;
+  background: rgba(255, 244, 248, .9);
+  font-size: .88rem;
+  line-height: 1.45;
+  color: var(--deep);
+  text-align: left;
+}
+
+.hint-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+
+/* ============ form ============ */
+#codeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#codeInput {
+  width: 100%;
+  padding: 15px 18px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--deep);
+  text-align: center;
+  background: #fff;
+  border: 2px solid #ffd0de;
+  border-radius: 999px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+#codeInput::placeholder {
+  font-weight: 500;
+  color: #d3a3b4;
+}
+
+#codeInput:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 4px rgba(255, 182, 201, .28);
+}
+
+button[type="submit"] {
+  padding: 15px 20px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff8fb0, var(--rose));
+  box-shadow: 0 10px 20px -8px rgba(232, 84, 124, .75);
+  transition: transform .16s ease, box-shadow .16s ease, filter .16s;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow: 0 14px 24px -8px rgba(232, 84, 124, .8);
+}
+
+button[type="submit"]:active { transform: translateY(0) scale(.98); }
+
+/* ============ error + shake ============ */
+.error {
+  min-height: 1.2em;
+  margin: 12px 0 0;
+  font-size: .84rem;
+  font-weight: 600;
+  color: #d43b63;
+}
+
+.shake { animation: shake .42s cubic-bezier(.36, .07, .19, .97); }
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-7px); }
+  40%, 60% { transform: translateX(7px); }
+}
+
+/* ============ reveal screen ============ */
+.message {
+  margin: 10px 0 22px;
+  font-size: .95rem;
+  line-height: 1.65;
+  color: #6c3149;
+}
+
+.wa-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4ee08b, #1fa855);
+  box-shadow: 0 12px 22px -10px rgba(31, 168, 85, .85);
+  transition: transform .16s ease, filter .16s;
+}
+
+.wa-btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+
+.qr-wrap {
+  margin-top: 20px;
+  padding: 14px;
+  border: 2px dashed #ffc9d9;
+  border-radius: 20px;
+  background: rgba(255, 250, 252, .92);
+}
+
+.qr-wrap img {
+  display: block;
+  width: 168px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.qr-cap {
+  margin: 10px 0 0;
+  font-size: .76rem;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+
+.ps {
+  margin: 18px 0 0;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.25rem;
+  color: var(--rose);
+}
+
+/* ============ floating hearts on success ============ */
+.pop {
+  position: fixed;
+  z-index: 5;
+  font-size: 1.5rem;
+  pointer-events: none;
+  animation: popUp 2.6s ease-out forwards;
+}
+
+@keyframes popUp {
+  0%   { opacity: 0; transform: translate(0, 0) scale(.5) rotate(0deg); }
+  15%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--dx, 0), -70vh) scale(1.25) rotate(var(--rot, 25deg)); }
+}
+
+/* ============ small screens ============ */
+@media (max-width: 400px) {
+  .card { padding: 28px 18px 24px; border-radius: 26px; }
+  .qr-wrap img { width: 148px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ted, .teddy-badge { animation: none !important; }
+  .screen.is-in, .screen.is-out, .pop { animation-duration: .01ms !important; }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Little Secret 🧸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- floating teddies in the background -->
+  <div class="teds" aria-hidden="true">
+    <span class="ted" style="--x:4%;  --y:12%; --size:2.8rem; --dur:9s;  --delay:0s;   --op:.45;">🧸</span>
+    <span class="ted" style="--x:88%; --y:8%;  --size:2.2rem; --dur:11s; --delay:1.2s; --op:.40;">🧸</span>
+    <span class="ted" style="--x:12%; --y:74%; --size:3.4rem; --dur:13s; --delay:.6s;  --op:.35; --blur:1px;">🧸</span>
+    <span class="ted" style="--x:78%; --y:68%; --size:2.6rem; --dur:10s; --delay:2s;   --op:.42;">🧸</span>
+    <span class="ted" style="--x:48%; --y:6%;  --size:1.9rem; --dur:12s; --delay:.3s;  --op:.30; --blur:1.5px;">🧸</span>
+    <span class="ted" style="--x:30%; --y:88%; --size:2rem;   --dur:14s; --delay:1.6s; --op:.30;">🧸</span>
+    <span class="ted" style="--x:92%; --y:44%; --size:1.6rem; --dur:8s;  --delay:.9s;  --op:.28; --blur:2px;">🧸</span>
+    <span class="ted" style="--x:2%;  --y:46%; --size:1.7rem; --dur:9.5s;--delay:2.4s; --op:.26; --blur:2px;">🧸</span>
+    <span class="ted" style="--x:64%; --y:92%; --size:1.5rem; --dur:11s; --delay:.2s;  --op:.24; --blur:1px;">💗</span>
+    <span class="ted" style="--x:22%; --y:24%; --size:1.3rem; --dur:10s; --delay:3s;   --op:.24; --blur:1px;">💗</span>
+  </div>
+
+  <main class="card" id="card">
+
+    <!-- ===== SCREEN 1 : the gate ===== -->
+    <section id="gate" class="screen">
+      <div class="teddy-badge">🧸</div>
+      <!-- 📷 PHOTO 1 (before the codeword): put photo1.jpg next to index.html -->
+      <img class="photo" src="photo1.jpg" alt="Our photo" onerror="this.style.display='none'" />
+      <h1 class="script">Hey how r u ? i missing you every fucking day</h1>
+      <p class="sub">welcome if u want to go for next step</p>
+
+      <div class="hint">
+        <span class="hint-label">💡 Hint</span>
+        <span id="hintText">It’s a name you used to call me. So, put that name here.</span>
+      </div>
+
+      <form id="codeForm" autocomplete="off">
+        <input
+          id="codeInput"
+          type="text"
+          placeholder="type the codeword…"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          aria-label="Codeword"
+        />
+        <button type="submit">Unlock 💗</button>
+      </form>
+
+      <p id="error" class="error" role="alert"></p>
+    </section>
+
+    <!-- ===== SCREEN 2 : the reveal ===== -->
+    <section id="reveal" class="screen is-hidden">
+      <div class="teddy-badge">🧸</div>
+      <h1 class="script">You found it 💗</h1>
+
+      <p class="message">
+        <!-- ✏️ EDIT: your message for her -->
+        hey listen i missing u everyday but i afraid you to call u or message you because last time
+        in your birthday i wished you and u tell everyone and than they come to me and told me why
+        i wished u ; so i afraid u to call u and text you . if u want to join the our old WhatsApp group
+        you can join i already frequently talk in there alone , i sent message , i sent videos of mine
+        pictures everything and u will get to know how much i missed u since the last time i made
+        those shit thinngs . soo , i already post many things in instagram . but uk my laptop had
+        crashed so our all photos was in there . i will recover those soon asap, if u really do feel the same please join ,
+        otherwide no need to join  .. love u everyday
+      </p>
+
+      <a id="waBtn" class="wa-btn" href="https://chat.whatsapp.com/DnEcJVXnf0UIsiKejIXtqd" target="_blank" rel="noopener">
+        Join our little group 💬
+      </a>
+
+      <div class="qr-wrap">
+        <img id="qrImg" src="qr.jpeg" alt="WhatsApp group QR code" />
+        <p class="qr-cap">or scan it with WhatsApp</p>
+      </div>
+
+      <p class="ps">See you inside 🧸</p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
